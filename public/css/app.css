@@ -1,0 +1,93 @@
+body {
+  padding-top: 5em;
+}
+
+a {
+  color: #112;
+}
+
+h1 {
+  padding: 3em 1em 0 1em;
+  text-align: center;
+}
+
+h3.mark_answers {
+  background: #779D34;
+  border: #a9cd6a;
+  border-radius: 0.5em;
+  cursor: pointer;
+  padding: 1em;
+  text-align: center;
+}
+
+form {
+  margin: 0 auto;
+  width: 50%;
+}
+
+form input {
+  height: 2em;
+  width: 100%;
+}
+
+form textarea {
+  height: 5em;
+  width: 100%;
+}
+
+nav.navbar {
+  background: #112;
+  border-bottom: 2px solid #bbbbff;
+}
+
+nav.navbar a {
+  color: #eef;
+  padding: 0 0.5em;
+}
+
+nav.navbar form {
+  float: right;
+  padding: 10px;
+}
+
+nav.navbar form input {
+  width: 30%;
+}
+
+nav.navbar form input[type=submit] {
+  width: 10%;
+}
+
+nav.navbar h3 {
+  float: left;
+}
+
+nav.navbar h3.logout {
+  float: right;
+}
+
+.question p {
+  cursor: pointer;
+  padding: 0.5em;
+  border: 3px solid transparent;
+}
+
+.question .selected {
+  background: #eef;
+  border: 3px solid #112;
+  border-radius: 5px;
+}
+
+.question .show_incorrect_answer {
+  background: #FFACAA;
+  border-color: #ff4844;
+}
+
+.question .show_correct_border {
+  border: 3px solid #779D34;
+  border-radius: 5px;
+}
+
+.question .show_correct_answer {
+  background: #a9cd6a;
+}

@@ -1,0 +1,97 @@
+// @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+
+$primary-color: #eef;
+$secondary-color: #112;
+$correct: #779D34;
+$incorrect: #FFACAA;
+
+
+
+body{
+    //background: #eef;
+    padding-top: 5em;
+}
+
+a{
+    color: $secondary-color;
+}
+
+h1{
+    padding: 3em 1em 0 1em;
+    text-align: center;
+}
+
+h3.mark_answers{
+    background: $correct;
+    border: lighten($correct, 20%);
+    border-radius: 0.5em;
+    cursor: pointer;
+    padding: 1em;
+    text-align: center;
+}
+
+form{
+    margin: 0 auto;
+    width: 50%;
+    
+    
+    input{
+        height: 2em;
+        width: 100%;
+    }
+    textarea{
+        height: 5em;
+        width: 100%;
+    }
+}
+nav.navbar{
+    background: $secondary-color;
+    border-bottom: 2px solid darken($primary-color, 10%);
+    a{
+        color: $primary-color;
+        padding: 0 0.5em;
+    }
+    form{
+        float: right;
+        padding: 10px;
+        
+        input{
+            width: 30%;
+        }
+        input[type=submit]{
+            width: 10%
+        }
+    }
+    h3{
+        float: left;
+    }
+    h3.logout{
+        float: right;
+    }    
+
+}
+.question{
+     p{
+        cursor: pointer;
+        padding: 0.5em;
+        border: 3px solid transparent;
+    }
+    .selected{
+        background: #eef;
+        border: 3px solid #112;
+        border-radius: 5px;
+    }
+    .show_incorrect_answer {
+        background: $incorrect;
+        border-color: darken($incorrect, 20%);
+
+    }
+    .show_correct_border {
+        border: 3px solid $correct;
+        border-radius: 5px;
+    }
+    .show_correct_answer{
+        background: lighten($correct, 20%);
+
+    }
+}
