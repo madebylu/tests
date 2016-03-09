@@ -1,3 +1,7 @@
+##Tests - Made by Lu
+
+Simple multiple choice test creation and management designed for use in education, built on the Laravel Framework.
+
 ## Laravel PHP Framework
 
 [![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
