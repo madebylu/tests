@@ -10,7 +10,7 @@
     <div class="col-sm-6">
         <h1>Take a test</h1>
         <form id="sit_test">
-            <input type="text" placeholder="Code"i id="code" /> <br />
+            <input type="text" placeholder="Code" id="code" /> <br />
             <input type="submit" label="Find"  />
         </form>
     </div>

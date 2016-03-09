@@ -32,6 +32,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::post('quiz/store', 'QuizController@store');
     Route::get('quiz/edit/{id}', 'QuizController@edit');
     Route::post('quiz/update/{id}', 'QuizController@update');
+    Route::post('quiz/validate_code/{code}', 'QuizController@validate_code');
 
     
     //question routes

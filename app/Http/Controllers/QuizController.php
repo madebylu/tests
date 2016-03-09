@@ -142,12 +142,28 @@ class QuizController extends Controller
     public function code_redirect($code)
     {
         try{
-        $quiz = Quiz::where('code', $code)->firstOrFail();
+        $code_array = explode('-', $code);
+        $user_id = array_pop($code_array);
+        $code = implode('-', $code_array);
+        $quiz = Quiz::where(['code' => $code, 'user_id' => $user_id])->firstOrFail();
         return redirect()->action('QuizController@sit', ['id' => $quiz->id]);
         }
         catch(\Exception $e){
             return view('home', ['message' => 'No test with that code']);
         }
 
+    }
+    
+    //checks of a test code alreadyv exists for the currently logged in user.
+    //returns whether a code is unique or a duplicate.
+    public function validate_code($code)
+    {
+        try{
+            $quiz = Quiz::where(['code' => $code, 'user_id' => Auth::user()->id])->firstOrFail();
+            return "duplicate";
+        }
+        catch (\Exception $e) {
+            return "unique";
+        }
     }
 }

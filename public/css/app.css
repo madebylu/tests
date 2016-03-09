@@ -30,6 +30,10 @@ form input {
   width: 100%;
 }
 
+form input.with-suffix {
+  width: calc(100% - 2em);
+}
+
 form textarea {
   height: 5em;
   width: 100%;
@@ -64,6 +68,13 @@ nav.navbar h3 {
 
 nav.navbar h3.logout {
   float: right;
+}
+
+.form-advisory {
+  left: 75%;
+  position: fixed;
+  top: 40%;
+  width: 20%;
 }
 
 .question p {

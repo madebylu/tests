@@ -14,7 +14,7 @@
         <a href="/quiz/view/{{$quiz->id}}">
         <div class="col-sm-4 quiz">
             <h3>{{$quiz->title}}</h3>
-            <h3>{{$quiz->code}}</h3>
+            <h3>{{$quiz->code}}-{{Auth::user()->id}}</h3>
             <p>{{$quiz->content}}<p>
             
         </div>

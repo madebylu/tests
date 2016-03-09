@@ -9,7 +9,7 @@
 
 <h2>{{$quiz->title}}</h2>
 
-<h2>Code: {{$quiz->code}}</h2>
+<h2>Code: {{$quiz->code}}-{{Auth::user()->id}}</h2>
 
 <p>{{$quiz->content}}</p>
 
