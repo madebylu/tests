@@ -9,12 +9,12 @@
 <div class="row">
     @foreach($questions as $question)
     <div class="col-sm-6 question">
-        <h3>{{$question->title}}</h3>
-        <p>{{$question->content}}</p>
 	@if($question->type == 'trueFalse')
+    <h3>{{$question->title}}</h3>
 	<div class="true-or-false">
 	    True / False
 	</div>
+        <p>{{$question->content}}</p>
         @foreach($question->answers as $answer)
 	    <div class="true-or-false">
             <div>
@@ -37,6 +37,8 @@
         </p>
         @endforeach
     @else
+        <h3>{{$question->title}}</h3>
+        <p>{{$question->content}}</p>
         @foreach($question->answers as $answer)
             <p class="answer @if($answer->correct) correct @endif" >
                 {{$answer->title}} - {{$answer->content}} 
