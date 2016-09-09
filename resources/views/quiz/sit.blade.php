@@ -10,11 +10,11 @@
     @foreach($questions as $question)
     <div class="col-sm-6 question">
         <h3>{{$question->title}}</h3>
+        <p>{{$question->content}}</p>
 	@if($question->type == 'trueFalse')
 	<div class="true-or-false">
 	    True / False
 	</div>
-        <p>{{$question->content}}</p>
         @foreach($question->answers as $answer)
 	    <div class="true-or-false">
             <div>
