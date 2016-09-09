@@ -25,7 +25,7 @@ form {
   width: 50%;
 }
 
-form input {
+form input, form select {
   height: 2em;
   width: 100%;
 }
@@ -37,6 +37,18 @@ form input.with-suffix {
 form textarea {
   height: 5em;
   width: 100%;
+}
+
+div.true-or-false{
+  float: right;
+}
+
+div.true-or-false>div{
+  float: left;
+}
+
+div.true-or-false input{
+  margin: 0 1em;
 }
 
 nav.navbar {

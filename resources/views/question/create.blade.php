@@ -8,6 +8,10 @@
     {!! csrf_field() !!}
     <input type="text" name="title" placeholder="Question Title" /> <br />
     <textarea name="content" placeholder="Question text" /></textarea> <br />
+    <select name="type" placeholder="Question text" />
+        <option value="multi">Multiple Choice</option>
+        <option value="trueFalse">True / False</option> 
+    </select> <br />
     <h3>Answers</h3>
     <input type="text" name="answer[1][title]" value="1" />
     <textarea name="answer[1][content]" placeholder="Answer..." /></textarea>

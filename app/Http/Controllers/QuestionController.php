@@ -53,6 +53,7 @@ class QuestionController extends Controller
             $question->quiz_id = $quiz_id;
             $question->title = $request->title;
             $question->content = $request->content;
+            $question->type = $request->type;
 
             $question->save();
         
@@ -113,6 +114,7 @@ class QuestionController extends Controller
             $question = Question::find($id);
             $question->title = $request->title;
             $question->content = $request->content;
+            $question->type = $request->type;
 
             $question->save();
             

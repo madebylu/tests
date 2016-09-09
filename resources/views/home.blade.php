@@ -11,13 +11,13 @@
         <h1>Take a test</h1>
         <form id="sit_test">
             <input type="text" placeholder="Code" id="code" /> <br />
-            <input type="submit" label="Find"  />
+            <input type="submit" value="Find"  />
         </form>
     </div>
     
     <a href="/quiz/index">
     <div class="col-sm-6">
-        <h1>Make a test</h1>
+        <h1>Make or<br /> change tests</h1>
     </div>
     </a>
 </div>

@@ -47,6 +47,14 @@ form{
         width: 100%;
     }
 }
+
+div.true-or-false{
+    float: right;
+    input{
+        padding: 0 2em;
+    }
+}
+
 nav.navbar{
     background: $secondary-color;
     border-bottom: 2px solid darken($primary-color, 10%);
