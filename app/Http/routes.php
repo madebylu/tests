@@ -38,12 +38,14 @@ Route::group(['middleware' => ['auth']], function() {
     //question routes
     Route::get('question/view/{id}', 'QuestionController@show');
     Route::get('question/add/{quiz_id}', 'QuestionController@create');
+    Route::get('question/add_draggable/{quiz_id}', 
+        'QuestionController@create_draggable');
     Route::post('question/store/{quiz_id}', 'QuestionController@store');
     Route::get('question/edit/{id}', 'QuestionController@edit');
     Route::post('question/update/{id}', 'QuestionController@update');
     Route::get('question/delete/{id}', 'QuestionController@destroy');
     
-    // answerroutes
+    // answer routes
     Route::get('answer/add/{question_id}', 'AnswerController@create');
     Route::post('answer/store/{question_id}', 'AnswerController@store');
     Route::get('answer/edit/{id}', 'AnswerController@edit');

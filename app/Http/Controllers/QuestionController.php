@@ -36,6 +36,11 @@ class QuestionController extends Controller
         return view('question.create', ['quiz_id' => $quiz_id]);
     }
 
+    public function create_draggable($quiz_id)
+    {
+        return view('question.create_draggable', ['quiz_id' => $quiz_id]);
+    }
+
     /**
      * Store a newly created resource in storage.
      *

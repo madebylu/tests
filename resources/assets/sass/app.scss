@@ -50,8 +50,11 @@ form{
 
 div.true-or-false{
     float: right;
+    >div{
+        float: left;
+    }
     input{
-        padding: 0 2em;
+        padding: 0 1em;
     }
 }
 
