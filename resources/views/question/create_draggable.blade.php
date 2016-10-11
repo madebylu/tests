@@ -22,6 +22,8 @@
         </div>
         <div class="col-sm-6 draggable-answers">
             <input type="text" name="draggable_answer[1][title]" value="1" />
+            <input type="test" name="draggable_answer[1][draggable_id]"
+                placeholder="matches draggable..." />
         </div>
         
     </div>
