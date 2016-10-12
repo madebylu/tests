@@ -15,15 +15,19 @@
 
 <h3>Questions</h3>
 
+<table class="table">
+<tr><th>Title</th><th>Content</th><th>Edit</th><th>Delete</th></tr>
 @foreach($questions as $question)
-
-<p>{{$question->title}} - {{$question->content}} 
-    <a href="/question/view/{{$question->id}}"><span class="glyphicon glyphicon-edit"></span> </a> 
-    <a href="/question/delete/{{$question->id}}"><span class="glyphicon glyphicon-remove"></span> </a> 
-</p>
-
+    <tr>
+        <td>{{$question->title}}</td>
+        <td>{{$question->content}}</td>
+        <td><a href="/question/view/{{$question->id}}"><span class="glyphicon glyphicon-edit"></span> </a> </td>
+        <td><a href="/question/delete/{{$question->id}}"><span class="glyphicon glyphicon-remove"></span> </a> </td>
+    </tr>
 @endforeach
+</table>
 
-<p><a href="/question/add/{{$quiz->id}}">Add another question.</a></p>
+<p class="btn btn-default"><a href="/question/add/{{$quiz->id}}">Add a multiple choice or true/false question.</a></p>
+<p class="btn btn-default"><a href="/question/add_draggable/{{$quiz->id}}">Add a drag and drop question.</a></p>
 
 @endsection

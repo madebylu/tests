@@ -138,8 +138,14 @@ class QuestionController extends Controller
     public function edit($id)
     {
         $question = Question::find($id);
-        
-        return view('question.edit', ['question' => $question]);
+        if ($question->type == 'trueFalse' || $question->type == 'multi')
+        {
+            return view('question.edit', ['question' => $question]);
+        }
+        else
+        {
+            return "make a view";
+        }
     }
 
     /**

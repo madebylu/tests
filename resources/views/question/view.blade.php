@@ -11,13 +11,17 @@
 <p>{{$question->content}}</p>
 
 <h3>Answers</h3>
+<table class="table">
 @foreach($answers as $answer)
-    <p>{{$answer->title}} - {{$answer->content}} 
-        <a href="/answer/edit/{{$answer->id}}"><span class="glyphicon glyphicon-edit"></span> </a> 
-        <a href="/answer/delete/{{$answer->id}}"><span class="glyphicon glyphicon-remove"></span> </a> 
-    </p>
+    <tr>
+        <td>{{$answer->title}} </td>
+        <td> {{$answer->content}} 
+        <td><a href="/answer/edit/{{$answer->id}}"><span class="glyphicon glyphicon-edit"></span> </a> </td>
+        <td><a href="/answer/delete/{{$answer->id}}"><span class="glyphicon glyphicon-remove"></span> </a> </td>
+    </tr>
     
 @endforeach
+</table>
 
 
 <p><a href="/answer/add/{{$question->id}}">Add another answer</a></p>
