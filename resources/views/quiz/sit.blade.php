@@ -55,6 +55,7 @@
 
 
 
+<script src="/js/draggable.js"></script>
 
 <script>
     $('document').ready( function () {
@@ -65,9 +66,20 @@
         $('.mark_answers').on('click', function(event) {
             var score = $('.correct.selected').length;
             score += $('input.correct:checked').length;
+            $('.target').each(function() {
+                console.log($(this).data('target'));
+                console.log($(this).children().first().data('drag'));
+                if ($(this).data('target') == $(this).children().first().data('drag')) {
+                    $(this).addClass('correct');
+                    score++;
+                }
+            });
+            
             var total = $('.correct').length;
+            total += $('.target').length;
             var selected = $('.selected').length;
-            selected +=$('input:checked').length;
+            selected += $('input:checked').length;
+            selected += $('.target').length;
             $('.score').show();
             $('.score span.correct_answers').text(score);
             $('.score span.total_marks').text(total);

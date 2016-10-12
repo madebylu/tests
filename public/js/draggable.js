@@ -4,7 +4,7 @@ Draggable - expetcs a .drag-zone within which elements with the .draggable class
 */
 
 var sheet = document.createElement('style');
-sheet.innerHTML = ".draggable{ border: 2px solid transparent; cursor: pointer; -webkit-user-select: none; -moz-user-select: none; -khtml-user-select: none; user-select: none; } .ghost{ border: 2px solid grey; box-shadow: 1px 1px 1px 1px lightgrey; opacity: 0.5; padding: 0.5em; position: absolute; } .draggable:hover{ border: 2px solid grey; box-shadow: 1px 1px 1px 1px lightgrey; } .drag-active{ border: 2px solid grey; box-shadow: 1px 1px 1px 1px lightgrey; } .drag-zone{ padding: 1em; } .target{ border: 2px solid black; height: 2em; margin: 1em; -webkit-user-select: none; -moz-user-select: none; -khtml-user-select: none; user-select: none; width: 100%;}";
+sheet.innerHTML = ".draggable{ border: 3px solid transparent; cursor: pointer; -webkit-user-select: none; -moz-user-select: none; -khtml-user-select: none; user-select: none; } .ghost{ border: 3px solid grey; box-shadow: 1px 1px 1px 1px lightgrey; opacity: 0.5; padding: 0.2em; position: absolute; } .draggable:hover{ border: 3px solid grey; box-shadow: 1px 1px 1px 1px lightgrey; } .drag-active{ border: 3px solid grey; box-shadow: 1px 1px 1px 1px lightgrey; } .drag-zone{ padding: 1em; } .target{ border: 3px solid black; height: 3em; -webkit-user-select: none; -moz-user-select: none; -khtml-user-select: none; user-select: none; width: 100%;}";
 document.head.appendChild(sheet);
 console.log(sheet);
 $(function() {
