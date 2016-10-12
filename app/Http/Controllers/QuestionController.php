@@ -9,6 +9,8 @@ use Tests\Http\Requests;
 use Tests\Http\Controllers\Controller;
 
 use Tests\Answer;
+use Tests\Draggable;
+use Tests\DraggableAnswer;
 use Tests\Question;
 use Tests\Quiz;
 
@@ -78,6 +80,42 @@ class QuestionController extends Controller
         }
     }
 
+    public function store_draggable(Request $request, $quiz_id)
+    {
+        if (Auth::check()){
+            
+            //return $request->draggable_answer;
+ 
+            $question = new Question;
+            $question->quiz_id = $quiz_id;
+            $question->title = $request->title;
+            $question->content = $request->content;
+            $question->type = "draggable";
+
+            $question->save();
+        
+            foreach($request->draggable as $draggable){
+                $d = new Draggable;
+                $d->question_id = $question->id;
+                $d->title = $draggable["title"]; 
+                $d->content = $draggable["content"];
+
+                $d->save();
+            }
+            
+            foreach($request->draggable_answer as $draggable_answer){
+                $da = new DraggableAnswer;
+                $da->question_id = $question->id;
+                $da->title = $draggable_answer["title"]; 
+                $da->draggable_id = $draggable_answer["draggable_id"];
+
+                $da->save();
+            }
+            return redirect()->action('QuestionController@show', ['id' => $question->id]);
+        } else {
+            return "you need to be logged in to do that";
+        }
+    }
     /**
      * Display the specified resource.
      *

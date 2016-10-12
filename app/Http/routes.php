@@ -41,6 +41,8 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('question/add_draggable/{quiz_id}', 
         'QuestionController@create_draggable');
     Route::post('question/store/{quiz_id}', 'QuestionController@store');
+    Route::post('question/store_draggable/{quiz_id}', 
+        'QuestionController@store_draggable');
     Route::get('question/edit/{id}', 'QuestionController@edit');
     Route::post('question/update/{id}', 'QuestionController@update');
     Route::get('question/delete/{id}', 'QuestionController@destroy');
