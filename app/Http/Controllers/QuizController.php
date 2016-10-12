@@ -9,6 +9,8 @@ use Tests\Http\Requests;
 use Tests\Http\Controllers\Controller;
 
 use Tests\Answer;
+use Tests\Draggable;
+use Tests\DraggableAnswer;
 use Tests\Question;
 use Tests\Quiz;
 
@@ -135,7 +137,11 @@ class QuizController extends Controller
     public function sit($id)
     {
         $quiz = Quiz::find($id);
-        $questions = Question::where('quiz_id', $id)->with('answers')->get();
+        $questions = Question::where('quiz_id', $id)
+            ->with('answers')
+            ->with('draggables')
+            ->with('draggable_answers')
+            ->get();
         return view('quiz.sit', ['quiz' => $quiz, 'questions' => $questions]);
     }
 

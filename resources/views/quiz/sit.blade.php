@@ -36,16 +36,11 @@
             {{$answer->title}} - {{$answer->content}} 
         </p>
         @endforeach
+	@elseif($question->type == 'multi')
+	    @include('includes.multiple_choice')
     @else
-        <h3>{{$question->title}}</h3>
-        <p>{{$question->content}}</p>
-        @foreach($question->answers as $answer)
-            <p class="answer @if($answer->correct) correct @endif" >
-                {{$answer->title}} - {{$answer->content}} 
-            </p>
-        @endforeach
-        
-	@endif
+        @include('includes.draggable')
+    @endif
         
     </div>
     @endforeach
