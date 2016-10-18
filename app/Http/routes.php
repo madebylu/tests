@@ -53,6 +53,13 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('answer/edit/{id}', 'AnswerController@edit');
     Route::post('answer/update/{id}', 'AnswerController@update');
     Route::get('answer/delete/{id}', 'AnswerController@destroy');
+    
+    //draggable  routes
+    Route::get('draggable/add/{question_id}', 'DraggableController@create');
+    Route::post('draggable/add/{question_id}', 'DraggableController@store');
+    Route::get('draggable/edit/{id}', 'DraggableController@edit');
+    Route::post('draggable/update/{id}', 'DraggableController@update');
+    Route::get('draggable/delete/{id}', 'DraggableController@destroy');
 });
 
 // Authentication routes...

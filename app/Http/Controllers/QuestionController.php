@@ -125,8 +125,21 @@ class QuestionController extends Controller
     public function show($id)
     {
         $question = Question::find($id);
-        $answers = $question->answers;
-        return view('question.view', ['question' => $question, 'answers' => $answers]);
+        if ($question->type != 'draggable'){
+            $answers = $question->answers;
+            return view('question.view', 
+                ['question' => $question, 
+                'answers' => $answers]
+            );
+        } else {
+            $draggables = $question->draggables;
+            $draggable_answers = $question->draggable_answers;
+            return view('question.view_draggable',
+                ['question' => $question, 
+                'draggables' => $draggables, 
+                'draggable_answers' => $draggable_answers]
+            );
+        }
     }
 
     /**
@@ -186,6 +199,8 @@ class QuestionController extends Controller
 
         if (Auth::user()->id == $quiz->user_id) {
             $answers = Answer::where('question_id', $id)->delete();
+            $draggables = Draggable::where('question_id', $id)->delete();
+            $draggable_answers = DraggableAnswer::where('question_id', $id)->delete();
             $question->delete();
         }
         return redirect()->action('QuizController@show', ['id' => $question->quiz_id]);
