@@ -56,7 +56,7 @@ Route::group(['middleware' => ['auth']], function() {
     
     //draggable  routes
     Route::get('draggable/add/{question_id}', 'DraggableController@create');
-    Route::post('draggable/add/{question_id}', 'DraggableController@store');
+    Route::post('draggable/store/{question_id}', 'DraggableController@store');
     Route::get('draggable/edit/{id}', 'DraggableController@edit');
     Route::post('draggable/update/{id}', 'DraggableController@update');
     Route::get('draggable/delete/{id}', 'DraggableController@destroy');

@@ -25,9 +25,9 @@ class DraggableController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //
+    public function create($question_id)
+    {   
+        return view('draggable.create', ['question_id' => $question_id]);
     }
 
     /**
@@ -36,9 +36,17 @@ class DraggableController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $question_id)
     {
-        //
+        $draggable = new Draggable;
+
+        $draggable->question_id = $question_id;
+        $draggable->title = $request->title;
+        $draggable->content = $request->content;
+
+        $draggable->save();
+
+        return redirect()->action('QuestionController@show', ['id' => $draggable->question_id]);
     }
 
     /**
