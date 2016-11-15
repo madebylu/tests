@@ -9,7 +9,7 @@
     <input type="text" name="title" placeholder="Draggable Title" /> <br />
     <select name="draggable_id">
         @foreach($draggable_targets as $target)
-            <option value="{{$target->title}}">{{$target->content}}</option>
+            <option value = "{{$target->title}}">{{$target->content}}</option>
         @endforeach
     </select> <br />
     <input type="submit" value="add"/>

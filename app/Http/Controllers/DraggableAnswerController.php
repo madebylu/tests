@@ -77,6 +77,15 @@ class DraggableAnswerController extends Controller
     public function edit($id)
     {
         //
+        $draggable_answer = DraggableAnswer::find($id);
+        $draggable_targets = Draggable::where('question_id', $draggable_answer->question_id)->get();
+        
+        return view('draggable_answer.edit', 
+            ['draggable_answer' => $draggable_answer,
+            'draggable_targets' => $draggable_targets ]
+        );
+        
+        
     }
 
     /**
@@ -89,6 +98,15 @@ class DraggableAnswerController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $draggable_answer = DraggableAnswer::find($id);
+
+        $draggable_answer->title = $request->title;
+        $draggable_answer->draggable_id = $request->draggable_id;
+
+        $draggable_answer->save();
+
+        return redirect()->action('QuestionController@show', 
+            ['id' => $draggable_answer->question_id]);
     }
 
     /**
@@ -100,5 +118,9 @@ class DraggableAnswerController extends Controller
     public function destroy($id)
     {
         //
+        $draggable_answer = DraggableAnswer::find($id);
+        $draggable_answer->delete();
+        return redirect()->action('QuestionController@show', 
+            ['id' => $draggable_answer->question_id]);
     }
 }
