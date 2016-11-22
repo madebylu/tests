@@ -6,7 +6,7 @@
 
 <form method="post" action="/draggable/store/{{$question_id}}">
     {!! csrf_field() !!}
-    <input type="text" name="title" placeholder="Draggable Title" /> <br />
+    <input type="number" name="title" placeholder="Draggable number" value="{{$next_title}}" /> <br />
     <textarea name="content" placeholder="Draggable Description" /></textarea> <br />
     <input type="submit" value="add"/>
 </form>

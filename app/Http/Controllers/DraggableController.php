@@ -27,7 +27,11 @@ class DraggableController extends Controller
      */
     public function create($question_id)
     {   
-        return view('draggable.create', ['question_id' => $question_id]);
+        $next_drag_title = Draggable::where('question_id', $question_id)
+            ->count() + 1;
+        return view('draggable.create', 
+            ['question_id' => $question_id, 
+            'next_title' => $next_drag_title]);
     }
 
     /**
