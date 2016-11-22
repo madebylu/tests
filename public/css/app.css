@@ -89,6 +89,10 @@ nav.navbar h3.logout {
   width: 20%;
 }
 
+.full-width{
+    width: 100%;
+}
+
 .question p {
   cursor: pointer;
   padding: 0.5em;

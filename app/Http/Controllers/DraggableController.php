@@ -50,6 +50,10 @@ class DraggableController extends Controller
 
         $draggable->save();
 
+        if($request->ajax()) {
+            return view('includes.question.draggable_row', ['draggable' => $draggable]);
+        }
+
         return redirect()->action('QuestionController@show', ['id' => $draggable->question_id]);
     }
 

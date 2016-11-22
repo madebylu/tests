@@ -13,33 +13,52 @@
 <div class="row">
     <div class="col-sm-6">
         <h3>Draggables</h3>
-        <p class="btn btn-default"><a href="/draggable/add/{{$question->id}}">Add another draggable</a></p>
-        <table class="table">
-        @foreach($draggables as $draggable)
-            <tr>
-                <td>{{$draggable->title}} </td>
-                <td> {{$draggable->content}} </td> 
-                <td><a href="/draggable/edit/{{$draggable->id}}"><span class="glyphicon glyphicon-edit"></span> </a> </td>
-                <td><a href="/draggable/delete/{{$draggable->id}}"><span class="glyphicon glyphicon-remove"></span> </a> </td>
-            </tr>
-        @endforeach
+        <p class="btn btn-default" id="add-draggable"><a href="/draggable/add/{{$question->id}}">Add another draggable</a></p>
+        <table class="table" id="draggable-table">
+        @each('includes.question.draggable_row', $draggables, 'draggable')
         </table>
+        <form id="add-draggable-form" class="full-width">
+            <p>Add a new Draggable</p>
+            {!! csrf_field() !!}
+            <input type="number" name="title" placeholder="Draggable number" /> <br />
+            <textarea name="content" placeholder="Draggable Description" /></textarea> <br />
+            <input type="submit" value="add"/>
+        </form>
     </div>
     <div class="col-sm-6">
         <h3>Draggable Targets</h3>
         <p class="btn btn-default"><a href="/draggable_answer/add/{{$question->id}}">Add another draggable target</a></p>
         <table class="table">
-        @foreach($draggable_answers as $draggable_answer)
-            <tr>
-                <td>({{$draggable_answer->draggable_id}}) {{$draggable_answer->title}} </td>
-                <td><a href="/draggable_answer/edit/{{$draggable_answer->id}}"><span class="glyphicon glyphicon-edit"></span> </a> </td>
-                <td><a href="/draggable_answer/delete/{{$draggable_answer->id}}"><span class="glyphicon glyphicon-remove"></span> </a> </td>
-            </tr>
-        @endforeach
+        @each('includes.question.draggable_target_row', $draggable_answers, 'draggable_answer')
         </table>
     </div>
 </div>
 <p class="btn btn-default"><a href="/question/add/{{$question->quiz_id}}">Add another question to this test</a></p>
 <p class="btn btn-default"><a href="/question/add_draggable/{{$question->quiz_id}}">Add another draggable question to this test</a></p>
+
+<script>
+$(function() {
+    $('#add-draggable-form').hide();
+    $('#add-draggable').on('click', function(e) {
+        $('#add-draggable-form').show();
+        e.preventDefault();
+    });
+    $('#add-draggable-form').on('submit', function(e) {
+        form_data = $(this).serializeArray();
+        console.log(form_data);
+        $.post('/draggable/store/{{$question->id}}', form_data, 
+            function(data) {
+                $('#draggable-table').append(data);
+            }
+        )
+        .done(function(data) {
+            $('#add-draggable-form').hide();
+            $('#add-draggable-form input[type=number]').val('');
+            $('#add-draggable-form textarea').val('');
+        });
+        e.preventDefault(); 
+    });
+});
+</script>
 
 @endsection
