@@ -11,7 +11,7 @@
     <body>
         <nav class="navbar navbar-fixed-top">
             <div class="container">
-                <h3><a href="/"><span class="glyphicon glyphicon-home"></span></a> @yield('menu_items')  </h3>
+                <h3><a href="/"><span class="glyphicon glyphicon-home" title="Home"></span></a> @yield('menu_items')  </h3>
                 @if(!isset(Auth::User()->name))
                 <form method="post" action="/auth/login">
                     {!! csrf_field() !!} 

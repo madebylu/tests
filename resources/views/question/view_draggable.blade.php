@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('menu_items')
-     <a href="/quiz/view/{{$question->quiz_id}}"><span class="glyphicon glyphicon-arrow-left"></span></a> <a href="/question/edit/{{$question->id}}"><span class="glyphicon glyphicon-edit"></span></a>
+     <a href="/quiz/view/{{$question->quiz_id}}" title="Back"><span class="glyphicon glyphicon-arrow-left"></span></a> <a href="/question/edit/{{$question->id}}" title="Edit"><span class="glyphicon glyphicon-edit"></span></a>
 @endsection
 
 @section('content')

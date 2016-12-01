@@ -157,7 +157,7 @@ class QuestionController extends Controller
         }
         else
         {
-            return "make a view";
+            return view('question.edit_draggable', ['question' => $question]);
         }
     }
 
