@@ -53,6 +53,9 @@ class DraggableAnswerController extends Controller
 
         $da->save();
 
+        if($request->ajax()) {
+            return view('includes.question.draggable_target_row', ['draggable_answer' => $da]);
+        }
         return redirect()->action('QuestionController@show', 
             ['id' => $da->question_id]);
     }
